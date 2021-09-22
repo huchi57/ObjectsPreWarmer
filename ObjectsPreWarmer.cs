@@ -44,6 +44,23 @@ public class ObjectsPreWarmer : MonoBehaviour
         }
     }
 
+    private void HideObjects()
+    {
+        if (preWarmObjects == null)
+        {
+            return;
+        }
+        cacheObjectActiveStates = new bool[preWarmObjects.Length];
+        for (int i = 0; i < preWarmObjects.Length; i++)
+        {
+            if (preWarmObjects[i] != null)
+            {
+                cacheObjectActiveStates[i] = preWarmObjects[i].activeSelf;
+                preWarmObjects[i].SetActive(false);
+            }
+        }
+    }
+
     public void WarmObjects()
     {
         if (preWarmObjects != null)
@@ -65,24 +82,7 @@ public class ObjectsPreWarmer : MonoBehaviour
             }
         }
     }
-
-    private void HideObjects()
-    {
-        if (preWarmObjects == null)
-        {
-            return;
-        }
-        cacheObjectActiveStates = new bool[preWarmObjects.Length];
-        for (int i = 0; i < preWarmObjects.Length; i++)
-        {
-            if (preWarmObjects[i] != null)
-            {
-                cacheObjectActiveStates[i] = preWarmObjects[i].activeSelf;
-                preWarmObjects[i].SetActive(false);
-            }
-        }
-    }
-
+    
     private void WarmObjectsFromIndex(int currentIndex)
     {
         for (int i = currentIndex; i < currentIndex + objectsToAwakePerOperation; i++)
