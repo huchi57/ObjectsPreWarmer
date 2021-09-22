@@ -1,5 +1,5 @@
 # ObjectsPreWarmer
-Distribute scene objects' initialization process (`Awake()` calls) evenly throughout multiple frames, easing scene loading processes.
+Distribute scene objects' initialization process (i.e. `Awake()` calls) evenly throughout multiple frames, easing scene loading processes.
 ## How to Use
 1. Put `ObjectsPreWarmer.cs` on a scene-level GameObject component.
 2. Select the GameObject, and press the lock icon on the inspector to lock the inspector view to the GameObject.
